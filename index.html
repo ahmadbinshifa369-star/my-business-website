@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ahmad Business | Professional Services</title>
+  <meta name="description" content="Professional digital services, creative solutions and business support.">
+  <meta name="keywords" content="business, digital services, games, presentations, CV, creative services">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #111827, #2563eb);
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: white;
+      color: #2563eb;
+      padding: 14px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .button.primary {
+      background: #22c55e;
+      color: white;
+    }
+
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #2563eb;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .portfolio-item {
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e5e7eb;
+      border-radius: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 12px;
+      padding: 18px;
+      border-radius: 10px;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 2000;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AHMAD BUSINESS</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>We Turn Ideas Into Reality</h1>
+
+    <p>
+      Professional digital services, creative solutions,
+      websites, presentations, CVs and more.
+    </p>
+
+    <a class="button primary" href="#services">Explore Services</a>
+    <a class="button" href="#contact">Contact Us</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About Us</h2>
+    <p>Helping customers bring their ideas to life.</p>
+  </div>
+
+  <div class="card">
+    <p>
+      Welcome to Ahmad Business. We provide creative and digital
+      services designed to help individuals, students and businesses.
+      Our goal is to provide simple, useful and professional solutions.
+    </p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Choose the service you need.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🌐 Websites</h3>
+      <p>Modern and responsive websites for businesses and projects.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎨 Presentations</h3>
+      <p>Professional presentations for school, business and projects.</p>
+    </div>
+
+    <div class="card">
+      <h3>📄 CV Creation</h3>
+      <p>Clean and professional CV designs.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎮 Games</h3>
+      <p>Simple custom games and game projects.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-title">
+    <h2>Pricing</h2>
+    <p>Simple packages to get started.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Basic</h3>
+      <div class="price">$10</div>
+      <p>Basic digital service.</p>
+      <a class="button primary" href="#contact">Order</a>
+    </div>
+
+    <div class="card">
+      <h3>Professional</h3>
+      <div class="price">$25</div>
+      <p>Professional service package.</p>
+      <a class="button primary" href="#contact">Order</a>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <div class="price">$50</div>
+      <p>Advanced custom solution.</p>
+      <a class="button primary" href="#contact">Order</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="section-title">
+    <h2>Portfolio</h2>
+    <p>Some examples of our work.</p>
+  </div>
+
+  <div class="cards">
+    <div class="portfolio-item">Project 1</div>
+    <div class="portfolio-item">Project 2</div>
+    <div class="portfolio-item">Project 3</div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Customer Reviews</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Great service and very helpful."</p>
+      <strong>Customer 1</strong>
+    </div>
+
+    <div class="card">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"The final result looked professional."</p>
+      <strong>Customer 2</strong>
+    </div>
+
+    <div class="card">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Fast and easy to work with."</p>
+      <strong>Customer 3</strong>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq">
+
+    <details>
+      <summary>How can I contact you?</summary>
+      <p>You can use the contact form, phone number or WhatsApp.</p>
+    </details>
+
+    <details>
+      <summary>Do you create custom projects?</summary>
+      <p>Yes. Contact us with your requirements.</p>
+    </details>
+
+    <details>
+      <summary>How long does an order take?</summary>
+      <p>The time depends on the size of the project.</p>
+    </details>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Let's discuss your project.</p>
+  </div>
+
+  <div class="contact-box">
+
+    <form onsubmit="sendMessage(event)">
+
+      <label>Name</label>
+      <input id="name" type="text" placeholder="Your name" required>
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Your email" required>
+
+      <label>Message</label>
+      <textarea id="message" placeholder="Tell us what you need..." required></textarea>
+
+      <button class="submit" type="submit">
+        Send Message
+      </button>
+
+    </form>
+
+    <br>
+
+    <p><strong>📞 Phone:</strong> +92 XXX XXXXXXX</p>
+    <p><strong>📧 Email:</strong> your@email.com</p>
+    <p><strong>📍 Address:</strong> Your Business Address</p>
+    <p><strong>🕒 Hours:</strong> Monday - Saturday, 10 AM - 8 PM</p>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Find Us</h2>
+  </div>
+
+  <div class="contact-box">
+    <p>
+      Google Maps will be added here once we have your business address.
+    </p>
+  </div>
+</section>
+
+<a
+  class="whatsapp"
+  href="https://wa.me/923000000000"
+  target="_blank">
+  💬 WhatsApp
+</a>
+
+<footer>
+
+  <h3>AHMAD BUSINESS</h3>
+
+  <p>Professional digital services and creative solutions.</p>
+
+  <br>
+
+  <p>
+    © 2026 Ahmad Business. All rights reserved.
+  </p>
+
+  <br>
+
+  <p>
+    Privacy Policy · Terms · Refund Policy · Cookie Policy
+  </p>
+
+</footer>
+
+<script>
+  function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    alert(
+      "Thanks " + name +
+      "! Your message form is ready. We will connect the form to a real email system next."
+    );
+  }
+</script>
+
+</body>
+</html>
