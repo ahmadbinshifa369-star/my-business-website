@@ -1,492 +1,1072 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ahmad Business | Professional Services</title>
-  <meta name="description" content="Professional digital services, creative solutions and business support.">
-  <meta name="keywords" content="business, digital services, games, presentations, CV, creative services">
+<title>ABS — Creative Digital Studio</title>
+<meta name="description" content="ABS creates websites, presentations, CVs, games and creative digital projects.">
+<meta name="theme-color" content="#0b1020">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.6;
-    }
+:root {
+  --bg: #070a12;
+  --card: rgba(255,255,255,.07);
+  --card-border: rgba(255,255,255,.12);
+  --text: #f8fafc;
+  --muted: #a8b0c0;
+  --primary: #7c5cff;
+  --secondary: #00d9ff;
+  --accent: #a855f7;
+  --shadow: 0 20px 60px rgba(0,0,0,.3);
+}
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+.light {
+  --bg: #f5f7fb;
+  --card: rgba(255,255,255,.75);
+  --card-border: rgba(15,23,42,.1);
+  --text: #101828;
+  --muted: #5f6b7a;
+  --shadow: 0 20px 50px rgba(15,23,42,.1);
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
 
-    nav a:hover {
-      color: #60a5fa;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -150px;
+  background: var(--primary);
+  opacity: .15;
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
 
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #111827, #2563eb);
-      color: white;
-    }
+body::after {
+  content: "";
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  right: -150px;
+  bottom: -150px;
+  background: var(--secondary);
+  opacity: .12;
+  filter: blur(120px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
 
-    .hero-content {
-      max-width: 850px;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .hero h1 {
-      font-size: 55px;
-      margin-bottom: 20px;
-    }
+.announcement {
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background: rgba(7,10,18,.72);
+  border-bottom: 1px solid var(--card-border);
+}
 
-    .button {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      padding: 14px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
-    }
+.light header {
+  background: rgba(255,255,255,.75);
+}
 
-    .button.primary {
-      background: #22c55e;
-      color: white;
-    }
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 17px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    section {
-      padding: 75px 7%;
-    }
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
+.logo span {
+  color: var(--secondary);
+}
 
-    .section-title h2 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
+nav a {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  transition: .2s;
+}
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    }
+nav a:hover {
+  color: var(--text);
+}
 
-    .card h3 {
-      margin-bottom: 12px;
-      color: #2563eb;
-    }
+.toggle {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
 
-    .price {
-      font-size: 32px;
-      font-weight: bold;
-      margin: 15px 0;
-    }
+.menu {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+}
 
-    .portfolio-item {
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e5e7eb;
-      border-radius: 15px;
-      font-size: 20px;
-      font-weight: bold;
-    }
+.hero {
+  min-height: 88vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 25px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
-    .contact-box {
-      max-width: 700px;
-      margin: auto;
-      background: white;
-      padding: 35px;
-      border-radius: 16px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    }
+.hero-content {
+  max-width: 850px;
+}
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0 15px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  border-radius: 50px;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  backdrop-filter: blur(15px);
+}
 
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
+.hero h1 {
+  font-size: clamp(48px,8vw,90px);
+  line-height: .98;
+  letter-spacing: -5px;
+  margin-bottom: 25px;
+}
 
-    .submit {
-      width: 100%;
-      border: none;
-      padding: 15px;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.gradient {
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-    .faq {
-      max-width: 800px;
-      margin: auto;
-    }
+.hero p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 19px;
+  margin-bottom: 35px;
+}
 
-    details {
-      background: white;
-      margin-bottom: 12px;
-      padding: 18px;
-      border-radius: 10px;
-    }
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: .25s;
+  backdrop-filter: blur(15px);
+}
 
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
+.btn:hover {
+  transform: translateY(-4px);
+}
 
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      background: #25d366;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      z-index: 2000;
-    }
+.btn-primary {
+  border: none;
+  color: white;
+  background: linear-gradient(90deg,var(--primary),var(--secondary));
+  box-shadow: 0 10px 35px rgba(124,92,255,.3);
+}
 
-    @media (max-width: 700px) {
-      nav {
-        display: none;
-      }
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 25px;
+}
 
-      .hero h1 {
-        font-size: 38px;
-      }
+.section-head {
+  margin-bottom: 45px;
+}
 
-      .hero p {
-        font-size: 17px;
-      }
-    }
-  </style>
+.section-head span {
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-head h2 {
+  font-size: clamp(32px,5vw,55px);
+  line-height: 1.05;
+  margin-top: 10px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 650px;
+  margin-top: 15px;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  border-radius: 22px;
+  padding: 28px;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(124,92,255,.5);
+}
+
+.card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.icon {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.service-grid,
+.pricing-grid,
+.review-grid,
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.price {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.price small {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.list {
+  list-style: none;
+  color: var(--muted);
+  margin: 20px 0;
+}
+
+.list li {
+  margin: 10px 0;
+}
+
+.stars {
+  color: #fbbf24;
+  letter-spacing: 2px;
+}
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+
+.number {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg,var(--primary),var(--secondary));
+  color: white;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.gallery-item {
+  min-height: 220px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg,rgba(124,92,255,.8),rgba(0,217,255,.3)),
+    #12182a;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.review {
+  position: relative;
+}
+
+.review strong {
+  display: block;
+  margin-top: 20px;
+}
+
+.faq {
+  max-width: 850px;
+  margin: auto;
+}
+
+details {
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+details p {
+  color: var(--muted);
+  padding-top: 15px;
+}
+
+.cta {
+  text-align: center;
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: 70px 25px;
+  background:
+    linear-gradient(135deg,rgba(124,92,255,.2),rgba(0,217,255,.12));
+}
+
+.cta h2 {
+  font-size: clamp(35px,5vw,60px);
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+.contact-item span {
+  color: var(--secondary);
+  font-weight: 800;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  font: inherit;
+}
+
+form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+footer {
+  border-top: 1px solid var(--card-border);
+  padding: 45px 25px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.social {
+  padding: 10px 15px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.discord {
+  background: #5865F2;
+  color: white;
+  border: none;
+}
+
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1500;
+  background: #25d366;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(37,211,102,.3);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .7s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:850px) {
+  nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .bento,
+  .service-grid,
+  .pricing-grid,
+  .review-grid,
+  .blog-grid,
+  .gallery,
+  .process,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .hero {
+    min-height: 75vh;
+    padding-top: 70px;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">AHMAD BUSINESS</div>
+<div class="announcement">
+  🚀 New projects are now open — Contact ABS today
+</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <div class="navbar">
+
+    <a href="#home" class="logo">
+      ABS<span>.</span>
+    </a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div>
+      <button class="toggle" onclick="toggleTheme()" id="themeButton">☀️</button>
+      <span class="menu">☰</span>
+    </div>
+
+  </div>
 </header>
 
+<main>
+
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>We Turn Ideas Into Reality</h1>
+
+  <div class="hero-content reveal">
+
+    <div class="badge">✦ CREATIVE DIGITAL STUDIO</div>
+
+    <h1>
+      We build
+      <span class="gradient">digital ideas</span>
+      that stand out.
+    </h1>
 
     <p>
-      Professional digital services, creative solutions,
-      websites, presentations, CVs and more.
+      Websites, presentations, CVs, games and creative digital
+      projects — designed to look modern and professional.
     </p>
 
-    <a class="button primary" href="#services">Explore Services</a>
-    <a class="button" href="#contact">Contact Us</a>
+    <div class="buttons">
+      <a class="btn btn-primary" href="#services">
+        Explore Services →
+      </a>
+
+      <a class="btn" href="#contact">
+        Let's Talk
+      </a>
+    </div>
+
   </div>
+
 </section>
 
-<section id="about">
-  <div class="section-title">
-    <h2>About Us</h2>
-    <p>Helping customers bring their ideas to life.</p>
-  </div>
+<section id="about" class="reveal">
 
-  <div class="card">
+  <div class="section-head">
+    <span>01 — About</span>
+    <h2>Small team.<br>Big ideas.</h2>
     <p>
-      Welcome to Ahmad Business. We provide creative and digital
-      services designed to help individuals, students and businesses.
-      Our goal is to provide simple, useful and professional solutions.
+      ABS helps people turn their ideas into polished digital projects.
+      We focus on clean design, useful features and a great experience.
     </p>
   </div>
+
+  <div class="bento">
+
+    <div class="card large">
+      <div class="icon">⚡</div>
+      <h3>Creative & Digital</h3>
+      <p>
+        From a simple presentation to a complete website or game,
+        we create digital experiences tailored to each project.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎯</div>
+      <h3>Our Goal</h3>
+      <p>Make your idea look professional and easy to use.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💡</div>
+      <h3>Our Approach</h3>
+      <p>Simple ideas, clean design and thoughtful details.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Fast Projects</h3>
+      <p>We aim to keep projects clear, organized and efficient.</p>
+    </div>
+
+  </div>
+
 </section>
 
-<section id="services">
-  <div class="section-title">
-    <h2>Our Services</h2>
-    <p>Choose the service you need.</p>
+<section id="services" class="reveal">
+
+  <div class="section-head">
+    <span>02 — Services</span>
+    <h2>What we create.</h2>
+    <p>Choose a service or contact us about a custom project.</p>
   </div>
 
-  <div class="cards">
+  <div class="service-grid">
 
     <div class="card">
-      <h3>🌐 Websites</h3>
-      <p>Modern and responsive websites for businesses and projects.</p>
+      <div class="icon">🌐</div>
+      <h3>Websites</h3>
+      <p>Modern responsive websites for projects and businesses.</p>
     </div>
 
     <div class="card">
-      <h3>🎨 Presentations</h3>
-      <p>Professional presentations for school, business and projects.</p>
+      <div class="icon">🎨</div>
+      <h3>Presentations</h3>
+      <p>Creative presentations with professional layouts.</p>
     </div>
 
     <div class="card">
-      <h3>📄 CV Creation</h3>
-      <p>Clean and professional CV designs.</p>
+      <div class="icon">📄</div>
+      <h3>CV Design</h3>
+      <p>Clean CVs designed to present information clearly.</p>
     </div>
 
     <div class="card">
-      <h3>🎮 Games</h3>
-      <p>Simple custom games and game projects.</p>
+      <div class="icon">🎮</div>
+      <h3>Games</h3>
+      <p>Small custom game projects and experiments.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🖼️</div>
+      <h3>Graphic Design</h3>
+      <p>Visual designs for digital projects and brands.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Custom Projects</h3>
+      <p>Have another idea? Contact us and let's discuss it.</p>
     </div>
 
   </div>
+
 </section>
 
-<section id="pricing">
-  <div class="section-title">
-    <h2>Pricing</h2>
-    <p>Simple packages to get started.</p>
+<section class="reveal">
+
+  <div class="section-head">
+    <span>03 — Process</span>
+    <h2>How it works.</h2>
   </div>
 
-  <div class="cards">
+  <div class="process">
 
     <div class="card">
-      <h3>Basic</h3>
-      <div class="price">$10</div>
-      <p>Basic digital service.</p>
-      <a class="button primary" href="#contact">Order</a>
+      <div class="number">1</div>
+      <h3>Tell us</h3>
+      <p>Explain what you want to create.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">2</div>
+      <h3>Plan</h3>
+      <p>We organize the project and requirements.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">3</div>
+      <h3>Create</h3>
+      <p>We build the design and project.</p>
+    </div>
+
+    <div class="card">
+      <div class="number">4</div>
+      <h3>Deliver</h3>
+      <p>You receive the finished project.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="work" class="reveal">
+
+  <div class="section-head">
+    <span>04 — Portfolio</span>
+    <h2>Selected work.</h2>
+  </div>
+
+  <div class="gallery">
+
+    <div class="gallery-item">Website</div>
+    <div class="gallery-item">Presentation</div>
+    <div class="gallery-item">Game</div>
+    <div class="gallery-item">CV Design</div>
+    <div class="gallery-item">Brand Design</div>
+    <div class="gallery-item">Custom Project</div>
+
+  </div>
+
+</section>
+
+<section id="pricing" class="reveal">
+
+  <div class="section-head">
+    <span>05 — Pricing</span>
+    <h2>Simple packages.</h2>
+    <p>Prices shown are starting examples. Contact us for a custom quote.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">$10 <small>/ project</small></div>
+
+      <ul class="list">
+        <li>✓ Basic project</li>
+        <li>✓ Simple design</li>
+        <li>✓ Basic support</li>
+      </ul>
+
+      <a class="btn" href="#contact">Discuss</a>
     </div>
 
     <div class="card">
       <h3>Professional</h3>
-      <div class="price">$25</div>
-      <p>Professional service package.</p>
-      <a class="button primary" href="#contact">Order</a>
+      <div class="price">$25 <small>/ project</small></div>
+
+      <ul class="list">
+        <li>✓ Professional design</li>
+        <li>✓ More features</li>
+        <li>✓ Project support</li>
+      </ul>
+
+      <a class="btn btn-primary" href="#contact">Discuss</a>
     </div>
 
     <div class="card">
-      <h3>Premium</h3>
-      <div class="price">$50</div>
-      <p>Advanced custom solution.</p>
-      <a class="button primary" href="#contact">Order</a>
+      <h3>Custom</h3>
+      <div class="price">Custom</div>
+
+      <ul class="list">
+        <li>✓ Custom requirements</li>
+        <li>✓ Advanced design</li>
+        <li>✓ Custom features</li>
+      </ul>
+
+      <a class="btn" href="#contact">Contact Us</a>
     </div>
 
   </div>
+
 </section>
 
-<section id="portfolio">
-  <div class="section-title">
-    <h2>Portfolio</h2>
-    <p>Some examples of our work.</p>
+<section id="reviews" class="reveal">
+
+  <div class="section-head">
+    <span>06 — Reviews</span>
+    <h2>What customers say.</h2>
   </div>
 
-  <div class="cards">
-    <div class="portfolio-item">Project 1</div>
-    <div class="portfolio-item">Project 2</div>
-    <div class="portfolio-item">Project 3</div>
-  </div>
-</section>
+  <div class="review-grid">
 
-<section>
-  <div class="section-title">
-    <h2>Customer Reviews</h2>
-  </div>
-
-  <div class="cards">
-    <div class="card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Great service and very helpful."</p>
+    <div class="card review">
+      <div class="stars">★★★★★</div>
+      <p>"Professional and creative work."</p>
       <strong>Customer 1</strong>
     </div>
 
-    <div class="card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"The final result looked professional."</p>
+    <div class="card review">
+      <div class="stars">★★★★★</div>
+      <p>"The project looked clean and modern."</p>
       <strong>Customer 2</strong>
     </div>
 
-    <div class="card">
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>"Fast and easy to work with."</p>
+    <div class="card review">
+      <div class="stars">★★★★★</div>
+      <p>"Easy to communicate with and helpful."</p>
       <strong>Customer 3</strong>
     </div>
+
   </div>
+
 </section>
 
-<section>
-  <div class="section-title">
-    <h2>Frequently Asked Questions</h2>
+<section class="reveal">
+
+  <div class="cta">
+
+    <h2>Have an idea?</h2>
+
+    <p>
+      Let's turn it into something awesome.
+    </p>
+
+    <a class="btn btn-primary" href="#contact">
+      Start a Project →
+    </a>
+
+  </div>
+
+</section>
+
+<section class="reveal">
+
+  <div class="section-head">
+    <span>07 — FAQ</span>
+    <h2>Questions?</h2>
   </div>
 
   <div class="faq">
 
     <details>
-      <summary>How can I contact you?</summary>
-      <p>You can use the contact form, phone number or WhatsApp.</p>
+      <summary>What services do you offer?</summary>
+      <p>We offer websites, presentations, CVs, games, graphic design and custom digital projects.</p>
     </details>
 
     <details>
-      <summary>Do you create custom projects?</summary>
-      <p>Yes. Contact us with your requirements.</p>
+      <summary>Can I request a custom project?</summary>
+      <p>Yes. Contact us and explain what you want.</p>
     </details>
 
     <details>
-      <summary>How long does an order take?</summary>
-      <p>The time depends on the size of the project.</p>
+      <summary>How can I contact ABS?</summary>
+      <p>You can contact us through Discord, WhatsApp, email or the contact form.</p>
     </details>
 
   </div>
+
 </section>
 
-<section id="contact">
-  <div class="section-title">
-    <h2>Contact Us</h2>
-    <p>Let's discuss your project.</p>
+<section id="contact" class="reveal">
+
+  <div class="section-head">
+    <span>08 — Contact</span>
+    <h2>Let's talk.</h2>
   </div>
 
-  <div class="contact-box">
+  <div class="contact-grid">
 
-    <form onsubmit="sendMessage(event)">
+    <div class="card">
 
-      <label>Name</label>
-      <input id="name" type="text" placeholder="Your name" required>
+      <div class="contact-item">
+        <span>💬 Discord</span>
+        <p>abs_org</p>
+      </div>
 
-      <label>Email</label>
-      <input id="email" type="email" placeholder="Your email" required>
+      <div class="contact-item">
+        <span>📱 WhatsApp</span>
+        <p>+92 XXX XXXXXXX</p>
+      </div>
 
-      <label>Message</label>
-      <textarea id="message" placeholder="Tell us what you need..." required></textarea>
+      <div class="contact-item">
+        <span>📧 Email</span>
+        <p>your@email.com</p>
+      </div>
 
-      <button class="submit" type="submit">
-        Send Message
-      </button>
+      <div class="contact-item">
+        <span>📍 Address</span>
+        <p>Your Business Address</p>
+      </div>
 
-    </form>
+      <div class="contact-item">
+        <span>🕒 Business Hours</span>
+        <p>Monday — Saturday<br>10 AM — 8 PM</p>
+      </div>
 
-    <br>
+      <div class="buttons">
 
-    <p><strong>📞 Phone:</strong> +92 XXX XXXXXXX</p>
-    <p><strong>📧 Email:</strong> your@email.com</p>
-    <p><strong>📍 Address:</strong> Your Business Address</p>
-    <p><strong>🕒 Hours:</strong> Monday - Saturday, 10 AM - 8 PM</p>
+        <a class="btn discord" href="https://discord.com/" target="_blank">
+          💬 Discord — abs_org
+        </a>
+
+        <a class="btn" href="https://wa.me/923000000000" target="_blank">
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <form onsubmit="sendMessage(event)">
+
+        <input id="name" type="text" placeholder="Your name" required>
+
+        <input id="email" type="email" placeholder="Your email" required>
+
+        <input id="subject" type="text" placeholder="Subject">
+
+        <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+
+        <button class="btn btn-primary" type="submit">
+          Send Message →
+        </button>
+
+      </form>
+
+    </div>
 
   </div>
+
 </section>
 
-<section>
-  <div class="section-title">
-    <h2>Find Us</h2>
-  </div>
+</main>
 
-  <div class="contact-box">
-    <p>
-      Google Maps will be added here once we have your business address.
-    </p>
-  </div>
-</section>
-
-<a
-  class="whatsapp"
-  href="https://wa.me/923000000000"
-  target="_blank">
+<a class="whatsapp" href="https://wa.me/923000000000" target="_blank">
   💬 WhatsApp
 </a>
 
 <footer>
 
-  <h3>AHMAD BUSINESS</h3>
+  <div class="logo">ABS<span>.</span></div>
 
-  <p>Professional digital services and creative solutions.</p>
+  <div class="socials">
 
-  <br>
+    <a class="social discord" href="https://discord.com/" target="_blank">
+      💬 Discord: abs_org
+    </a>
+
+    <a class="social" href="#">
+      Instagram
+    </a>
+
+    <a class="social" href="#">
+      YouTube
+    </a>
+
+    <a class="social" href="#">
+      TikTok
+    </a>
+
+  </div>
 
   <p>
-    © 2026 Ahmad Business. All rights reserved.
+    © 2026 ABS. All rights reserved.
   </p>
 
-  <br>
-
   <p>
-    Privacy Policy · Terms · Refund Policy · Cookie Policy
+    Privacy Policy · Terms · Cookie Policy · Refund Policy
   </p>
 
 </footer>
 
 <script>
-  function sendMessage(event) {
-    event.preventDefault();
 
-    const name = document.getElementById("name").value;
+function toggleTheme() {
 
-    alert(
-      "Thanks " + name +
-      "! Your message form is ready. We will connect the form to a real email system next."
-    );
+  document.body.classList.toggle("light");
+
+  const button = document.getElementById("themeButton");
+
+  if (document.body.classList.contains("light")) {
+    button.textContent = "🌙";
+    localStorage.setItem("theme","light");
+  } else {
+    button.textContent = "☀️";
+    localStorage.setItem("theme","dark");
   }
+}
+
+if (localStorage.getItem("theme") === "light") {
+  document.body.classList.add("light");
+  document.getElementById("themeButton").textContent = "🌙";
+}
+
+function sendMessage(event) {
+
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+
+  alert(
+    "Thanks " + name +
+    "! Your message form is ready. We will connect it to a real contact system later."
+  );
+
+}
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+
+  });
+
+},{threshold:.12});
+
+revealElements.forEach(element => {
+  observer.observe(element);
+});
+
 </script>
 
 </body>
